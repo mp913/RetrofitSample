@@ -36,11 +36,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ipButton.isChecked()) {
-                    textViewResult.setText("U'r mom is gay");
+                    textViewResult.setText("Option1");
                     App.getApi().getIP("ip").enqueue(new Callback<List<IPadress>>() {
                         @Override
                         public void onResponse(Call<List<IPadress>> call, Response<List<IPadress>> response) {
-                            textViewResult.setText("U'r mom is URL gay");
+                            textViewResult.setText("Option3");
                             //posts.addAll(response.body());
                             //recyclerView.getAdapter().notifyDataSetChanged();
                         }
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (datetimeButton.isChecked())
                 {
-                    textViewResult.setText("U'r second mom is gay");
+                    textViewResult.setText("Option2");
                 }
             }
         });

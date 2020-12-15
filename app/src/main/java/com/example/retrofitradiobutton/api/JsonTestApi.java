@@ -14,6 +14,6 @@ public interface JsonTestApi {
     @GET(".")
     Call<List<DateTime>> getData(@Query ("service") String service);
 
-    @GET(".")
+    @GET("/")
     Call<List<IPadress>> getIP(@Query ("service") String service);
 }
