@@ -11,9 +11,9 @@ import com.example.retrofitradiobutton.IPadress;
 
 public interface JsonTestApi {
 
-    @GET(".")
-    Call<List<DateTime>> getData(@Query ("service") String service);
+    @GET("/")
+    Call<DateTime> getData(@Query ("service") String service);
 
     @GET("/")
-    Call<List<IPadress>> getIP(@Query ("service") String service);
+    Call<IPadress> getIP(@Query ("service") String service);
 }

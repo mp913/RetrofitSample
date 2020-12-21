@@ -36,24 +36,31 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ipButton.isChecked()) {
-                    textViewResult.setText("Option1");
-                    App.getApi().getIP("ip").enqueue(new Callback<List<IPadress>>() {
+                    App.getApi().getIP("ip").enqueue(new Callback<IPadress>() {
                         @Override
-                        public void onResponse(Call<List<IPadress>> call, Response<List<IPadress>> response) {
-                            textViewResult.setText("Option3");
-                            //posts.addAll(response.body());
-                            //recyclerView.getAdapter().notifyDataSetChanged();
+                        public void onResponse(Call<IPadress> call, Response<IPadress> response) {
+                            textViewResult.setText(response.body().getIp());
                         }
 
                         @Override
-                        public void onFailure(Call<List<IPadress>> call, Throwable t) {
+                        public void onFailure(Call<IPadress> call, Throwable t) {
                             Toast.makeText(MainActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
                 if (datetimeButton.isChecked())
                 {
-                    textViewResult.setText("Option2");
+                    App.getApi().getData("date").enqueue(new Callback<DateTime>() {
+                        @Override
+                        public void onResponse(Call<DateTime> call, Response<DateTime> response) {
+                            textViewResult.setText(response.body().getDate() + ' ' + response.body().getTime());
+                        }
+
+                        @Override
+                        public void onFailure(Call<DateTime> call, Throwable t) {
+                            Toast.makeText(MainActivity.this, "An error occurred during networking", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 }
             }
         });
