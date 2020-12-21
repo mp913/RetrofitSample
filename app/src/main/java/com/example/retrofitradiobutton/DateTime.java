@@ -10,7 +10,7 @@ public class DateTime {
     private String date;
     @SerializedName("milliseconds_since_epoch")
     @Expose
-    private Integer millisecondsSinceEpoch;
+    private Long millisecondsSinceEpoch;
     @SerializedName("time")
     @Expose
     private String time;
@@ -23,11 +23,11 @@ public class DateTime {
         this.date = date;
     }
 
-    public Integer getMillisecondsSinceEpoch() {
+    public Long getMillisecondsSinceEpoch() {
         return millisecondsSinceEpoch;
     }
 
-    public void setMillisecondsSinceEpoch(Integer millisecondsSinceEpoch) {
+    public void setMillisecondsSinceEpoch(Long millisecondsSinceEpoch) {
         this.millisecondsSinceEpoch = millisecondsSinceEpoch;
     }
 
